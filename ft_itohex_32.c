@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 21:10:04 by cw3l              #+#    #+#             */
-/*   Updated: 2024/10/22 00:48:36 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/10/22 06:13:20 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_itohex_32(int nb, char x)
 	char	c;
 
 	lst = ft_table_lst(x);
-	binary = ft_itobi(nb);
+	binary = ft_itobi_32(nb);
 	i = 0;
 	if (nb == INT_MIN)
 	{

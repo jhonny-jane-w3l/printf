@@ -1,6 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
+/*   ft_longtobi_64.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/22 05:53:42 by cw3l              #+#    #+#             */
+/*   Updated: 2024/10/22 06:12:55 by cw3l             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
 /*   ft_itobi.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
@@ -50,21 +62,21 @@ static void	ft_complement_two(char *buffer)
 	ft_add_neg_byte(buffer);
 }
 
-static void	process_itobi(int nb, char *buff)
+static void	process_ltobi_64(long nb, char *buff)
 {
 	int	i;
 	int	mod;
 	int	is_neg;
 
 	is_neg = 0;
-	i = 31;
+	i = 63;
 	mod = 0;
 	if (nb < 0)
 	{
 		nb = -nb;
 		is_neg++;
 	}
-	buff[32] = '\0';
+	buff[64] = '\0';
 	while (i >= 0)
 	{
 		mod = nb % 2;
@@ -78,22 +90,24 @@ static void	process_itobi(int nb, char *buff)
 		ft_complement_two(buff);
 }
 
-char	*ft_itobi(int n)
+char	*ft_ltobi_64(void *nb)
 {
 	char	*buffer;
+	long 	n;
 
-	buffer = malloc(33 * sizeof(char));
+	n = (long)&nb;
+	printf("%ld\n",n);
+	buffer = malloc(65 * sizeof(char));
 	if (!buffer)
 		return (NULL);
-	process_itobi(n, buffer);
+	process_ltobi_64(n, buffer);
+	print_str(buffer);
 	return (buffer);
 }
 
 // int	main(void)
 // {
-// 	ft_itobi(INT_MAX);
-// 	ft_itobi(INT_MIN+1);
-// 	printf("%x\n",  INT_MAX);
+// 	ft_itobi_64((void *)-1500);
 // 	return (0);
 // }
 // 00000000000000000000 0011 1110 1000
