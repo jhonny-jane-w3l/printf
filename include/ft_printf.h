@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:10:32 by cw3l              #+#    #+#             */
-/*   Updated: 2024/10/22 19:33:33 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/10/22 23:26:23 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ int		ft_printf(const char *str, ...);
 char	ft_lst_find_value(t_list *table, char *key);
 int		ft_putnbr_uns_fd(unsigned int n, int i, int fd);
 int 	ft_print_ptr(void *ptr);
-int 	ft_print_hex(int nb);
+int 	ft_print_hex(int nb,char x);
+char	*ft_strtrim_start(char const *s1, char const *set);
 
 # define print_str(msg) printf("%s\n",msg)
 # define print_size(msg) printf("voici le int %zu\n",msg)

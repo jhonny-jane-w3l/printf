@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_uns_fd.c                                 :+:      :+:    :+:   */
+/*   ft_strtrim_start.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 15:25:27 by cw3l              #+#    #+#             */
-/*   Updated: 2024/10/22 22:54:49 by cw3l             ###   ########.fr       */
+/*   Created: 2024/09/18 04:16:29 by cw3l              #+#    #+#             */
+/*   Updated: 2024/10/22 22:40:40 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/ft_printf.h"
 
-int	ft_putnbr_uns_fd(unsigned int n, int i, int fd)
+char	*ft_strtrim_start(char const *s1, char const *set)
 {
-	char	digit;
+	size_t	i;
+	size_t	j;
+	char	*ptr;
 
-	if (n > 9)
-		i = ft_putnbr_uns_fd(n / 10, i + 1, fd);
-	digit = n % 10 + 48;
-	write(fd, &digit, 1);
-	return (i);
+	if (set == NULL || s1 == NULL)
+		return (NULL);
+	i = 0;
+	j = ft_strlen(s1) - 1;
+	while (ft_isset(s1[i], set) == 1)
+		i++;
+	while (i % 4 != 0)
+		i--;
+	if (i + 1 == j)
+		return (ft_strdup(""));
+	ptr = malloc(sizeof(char) * (j - i) + 2);
+	if (ptr == NULL)
+		return (NULL);
+	ft_strlcpy(ptr, &s1[i], (j - i) + 2);
+	return (ptr);
 }
-
-// int main ()
-// {
-// 	int j = printf("%u",-10000000);
-// 	int i = ft_putnbr_uns_fd(-10000000,1,1);
-// 	assert(i == j);
-// 	//int j = ft_putnbr_fd(-100000,1,1);
-// 	return (0);
-// }

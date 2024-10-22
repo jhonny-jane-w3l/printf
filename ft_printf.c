@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 18:41:52 by cw3l              #+#    #+#             */
-/*   Updated: 2024/10/22 21:42:27 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/10/22 23:26:27 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	ft_printf(const char *str, ...)
 	va_start(ap, str);
 	i = 0;
 	while (*str)
-	{
 		if (*str == '%')
 		{
 			str++;
@@ -32,15 +31,11 @@ int	ft_printf(const char *str, ...)
 				if (*str == 'c')
 					i += ft_putchar_fd(va_arg(ap, int), 1);
 				if (*str == 's')
-				{
-					print_int(i);
 					i += ft_putstr_fd(va_arg(ap, char *), 1);
-					print_int(i);
-				}
 				if (*str == 'x')
-					i += ft_itohex_32(va_arg(ap, int),'x');
+					i += ft_print_hex(va_arg(ap, int),'x');
 				if (*str == 'X')
-					i += ft_itohex_32(va_arg(ap, int),'X');
+					i += ft_print_hex(va_arg(ap, int),'X');
 				if (*str == 'i' || *str == 'd')
 					i += ft_putnbr_fd(va_arg(ap, int), 1, 1);
 				if (*str == 'p')
@@ -56,7 +51,6 @@ int	ft_printf(const char *str, ...)
 			ft_putchar_fd(*str, 1);
 			str++;
 		}
-	}
 	va_end(ap);
 	return (len + i);
 }

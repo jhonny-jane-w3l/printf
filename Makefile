@@ -12,6 +12,7 @@ LIBFT = ft_calloc.o \
 		ft_substr.o \
 		ft_putstr_fd.o \
 		ft_putchar_fd.o \
+		ft_putnbr_fd.o \
 		ft_toupper.o \
 		ft_lstnew.o \
 		ft_lstdelone.o \

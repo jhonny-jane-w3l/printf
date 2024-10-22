@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 18:03:45 by cw3l              #+#    #+#             */
-/*   Updated: 2024/10/21 23:59:11 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/10/22 22:58:34 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ t_list	*ft_table_lst(char x)
 
 	tbl_lst = malloc(1 * sizeof(t_list *));
 	if (!tbl_lst)
+	{
+		free(tbl_lst);
 		return (NULL);
+	}
 	tbl_lst = ft_lstnew(node_table("0000", '0',x));
 	ft_lstadd_back(&tbl_lst, ft_lstnew(node_table("0001", '1',x)));
 	ft_lstadd_back(&tbl_lst, ft_lstnew(node_table("0010", '2',x)));
