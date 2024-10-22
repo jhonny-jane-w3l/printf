@@ -2,7 +2,7 @@ CC = cc
 GFLAGS = -Werror -Wall -Wextra
 AR = ar
 NAME = libftprintf.a
-LIBFT_NAME= libft.a
+LIBFT_NAME= lib/libft.a
 LIBFT = ft_calloc.o \
 		ft_bzero.o \
 		ft_memset.o \
