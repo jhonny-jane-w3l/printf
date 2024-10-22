@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 05:53:42 by cw3l              #+#    #+#             */
-/*   Updated: 2024/10/22 06:12:55 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/10/22 06:27:32 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ char	*ft_ltobi_64(void *nb)
 	char	*buffer;
 	long 	n;
 
-	n = (long)&nb;
-	printf("%ld\n",n);
+	n = (long)nb;
+	printf("\nvoici : %ld\n", n);
 	buffer = malloc(65 * sizeof(char));
 	if (!buffer)
 		return (NULL);
