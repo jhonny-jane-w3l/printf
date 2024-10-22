@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:36:35 by cw3l              #+#    #+#             */
-/*   Updated: 2024/10/21 21:36:17 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/10/22 08:33:18 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <libc.h>
 # include <ctype.h>
 # include <string.h>
+
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

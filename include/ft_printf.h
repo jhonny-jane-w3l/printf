@@ -6,19 +6,24 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:10:32 by cw3l              #+#    #+#             */
-/*   Updated: 2024/10/22 06:11:23 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/10/22 08:41:31 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef LIBPRINTF_H
-#define LIBPRINTF_H
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "libft.h"
 #include <stdarg.h>
 #include <assert.h>
+# include <unistd.h>
+# include <libc.h>
+# include <ctype.h>
+# include <string.h>
+
+
 
 # define CHAR 99
 # define STR 115
@@ -33,19 +38,47 @@ typedef struct s_hex_table
 	
 } t_hex_table;
 
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}t_list ;	
 
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *b, int c, size_t len);
-char    *ft_itobi_32(int n);
-char	*ft_ltobi_64(void *nb);
 size_t	ft_strlen(const char *s);
 int	    ft_isset(char c, char const *set);
 char	ft_lst_find_value(t_list *table, char *key);
+void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_table_lst(char x);
-int		ft_itohex_32(int nb, char c);
-int		ft_itohex_64(void *nb, char x);
-int		ft_ltohex_64(void *nb, char x);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putchar_fd(char c, int fd);
+int		ft_toupper(int c);
+t_list	*ft_lstnew(void *content);
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+t_list	*ft_lstlast(t_list *lst);
+char	*ft_strdup(const char *s1);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
+
+char    *ft_itobi_32(int n);
+char	*ft_ltobi_64(void *nb);
+int		ft_itohex_32(int nb, char c);
+int		ft_ltohex_64(void *nb, char x);
+int		ft_printf(const char *str, ...);
+char	ft_lst_find_value(t_list *table, char *key);
+
+# define print_str(msg) printf("%s\n",msg)
+# define print_size(msg) printf("voici le int %zu\n",msg)
+# define print_int(msg) printf("voici le int %i\n",msg)
+# define print_ptr(msg) printf("voici le int %p\n",msg)
+# define print_char(msg) printf("%c\n",msg)
+# define print_float(msg) printf("voici le float %f\n",msg)
+# define print_hex(msg) printf("voici le float %x\n",msg)
 
 #endif
